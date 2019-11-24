@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<div class="form-group">
+				<div class="row">
+					<div class="col-xs-6">
+						<input type="text" class="form-control" [(ngModel)]="inputValue">
+          </div>
+						<div class="col-xs-2">&nbsp;&nbsp;</div>
+						<div class="col-xs-4">
+							<button class="btn btn-outline-primary" (click)="onAddtoList()">ADD</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+      {{(listArr$ | async) | json}}
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<ul class="list-group">
+					<li class="list-group-item" *ngFor="let item of (listArr$ | async); let i = index; trackBy: trackByFunction">
+						<span *ngIf="item.showText"  class="text" (dblclick)="onEdit(i)">{{item.text}}</span>
+						<span   *ngIf="item.showInput" class="edit-box"><input type="text" class="form-control"  [(ngModel)]="editingValue" [value]="editingValue" (blur)="updateText(i)"></span>
+						<button class="remove btn btn-outline-danger" (click)="onRemove(i)">x</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
