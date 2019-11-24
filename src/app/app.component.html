@@ -19,7 +19,7 @@
 				<ul class="list-group">
 					<li class="list-group-item" *ngFor="let item of (listArr$ | async); let i = index; trackBy: trackByFunction">
 						<span *ngIf="item.showText"  class="text" (dblclick)="onEdit(i)">{{item.text}}</span>
-						<span   *ngIf="item.showInput" class="edit-box"><input type="text" class="form-control"  [(ngModel)]="editingValue" [value]="editingValue" (blur)="updateText(i)"></span>
+						<span   *ngIf="item.showInput" class="edit-box"><input type="text" class="form-control"  [(ngModel)]="item.text" [value]="item.text" (blur)="updateText(i, item.text)"></span>
 						<button class="remove btn btn-outline-danger" (click)="onRemove(i)">x</button>
 					</li>
 				</ul>

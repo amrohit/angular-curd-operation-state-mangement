@@ -55,22 +55,22 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   onEdit(index) {
     console.log("on Editted!", index);
-    const listArrSubs = this.listArr$.subscribe(x => {
-      console.log(x);
-      this.editingValue = x[index].text;
-    });
-    this.subscriptionArr.push(listArrSubs);
+    // const listArrSubs = this.listArr$.subscribe(x => {
+    //   console.log(x);
+    //   this.editingValue = x[index].text;
+    // });
+    // this.subscriptionArr.push(listArrSubs);
     this.store.dispatch(
       switchToInput({ index, showInput: true, showText: false })
     );
   }
-  updateText(index) {
+  updateText(index, text) {
     this.store.dispatch(
       updateText({
         index,
         showInput: false,
         showText: true,
-        text: this.editingValue
+        text: text
       })
     );
   }

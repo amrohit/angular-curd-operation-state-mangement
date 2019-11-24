@@ -13,7 +13,14 @@ export interface AppState {
 }
 
 export const initalState: AppState = {
-  itemArr: []
+  itemArr: [ 
+    {
+      showInput: false,
+      showText: true,
+      text: "Example of State Mangment implementations!"
+    }
+
+  ]
 };
 
 export const _curdReducer = createReducer(
