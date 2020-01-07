@@ -15,7 +15,7 @@ import { ICurd } from "./curd.interface";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy { 
   name = "Angular";
   inputValue: string;
   editingValue: string;
